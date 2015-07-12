@@ -2,13 +2,11 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+from setuptools import setup, find_packages
 import io
 import hallie
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+here = os.path.abspath(os.path.dirname(__file__))
 
 
 with open('README.rst') as readme_file:
@@ -25,8 +23,6 @@ test_requirements = [
     # TODO: put package test requirements here
 ]
 
-here = os.path.abspath(os.path.dirname(__file__))
-
 setup(
     name='hallie',
     version='0.1.0',
@@ -35,9 +31,7 @@ setup(
     author="Michael Melchione",
     author_email='michaelmelchione@gmail.com',
     url='https://github.com/mikemelch/hallie',
-    packages=[
-        'hallie',
-    ],
+    packages=find_packages(exclude=["contrib", "docs", "tests*", "tasks"]),
     package_dir={'hallie':
                  'hallie'},
     include_package_data=True,
@@ -45,6 +39,12 @@ setup(
     license="BSD",
     zip_safe=False,
     keywords='hallie',
+    entry_points = {
+        'console_scripts': [
+            'hallie = hallie.hallie:main',
+            'bar = other_module:some_func',
+        ]
+    },
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
