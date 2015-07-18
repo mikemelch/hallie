@@ -12,5 +12,7 @@ def sudo():
 	speech.speak("Executing 'sudo !!' command to give the last command admin rights.\n")
 	subprocess.call(['sudo', '!!'])
 
-def mkdir():
-	print
+def mkdir(name):
+	"""create new directory with a given name and location"""
+	speech.speak("Executing 'mkdir " + name + "' command to create a directory.\n")
+	subprocess.call(["mkdir", name])
