@@ -13,6 +13,10 @@ def parse(command):
 		matches = re.search(r"(create|make|start|build|construct|prepare|whip).*(directory|folder|catalogue)(\s)(and\s)?(call(ed)?|name(ed)?)(\sit\s)?(?P<name>.*)", command)
 		files.mkdir(matches.group('name').strip())
 
+	elif re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((''|"")?(?P<command>\w*)(''|"")?).*(works?|means?)*\??)|(\w*)\?)", command):
+		matches = re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((''|"")?(?P<command>\w*)(''|"")?).*(works?|means?)*\??)|(\w*)\?)", command)
+		files.man(matches.group('command').strip())
+
 def main():
 	if len(sys.argv) < 2:
 		speech.emptyCommand()
