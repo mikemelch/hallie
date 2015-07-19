@@ -6,7 +6,7 @@ import pickle
 from modules import *
 
 def parse(command):
-	if re.search(r"(please\s)*(show|give|tell|list|print)\s(me|my)*.*\s(files)", command):
+	if re.search(r"(show|give|tell|list|print)\s(me|my)*.*\s(files)", command):
 		files.printFiles()
 
 	#elif re.match(r"(run.*(as|with)\s(priv.*|super.*|sudo|root|admin.*))|sudo|admin|super.*", command):
@@ -27,6 +27,10 @@ def parse(command):
 	elif re.search(r"copy.*((file|directory|folder)*)?\s(?P<location>\"?(.)*\"?)$", command):
 		matches = re.search(r"copy.*((file|directory|folder)*)?\s(?P<location>\"?(.)*\"?)$", command)
 		files.copy(matches.group('location'))
+
+	elif re.search(r"(open|navigate to|browse)\s(?P<site>.*)", command):
+		matches = re.search(r"(open|navigate to|browse)\s(?P<site>.*)", command)
+		browser.openSite(matches.group('site').lower())
 
 def main():
 	if len(sys.argv) < 2:

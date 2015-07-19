@@ -1,1 +1,1 @@
-__all__ = ['files', 'speech']
+__all__ = ['files', 'speech', 'itunes', 'browser']
