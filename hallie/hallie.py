@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys
 import re
+import pickle
 
 from modules import *
 
@@ -16,12 +17,16 @@ def parse(command):
 		files.mkdir(matches.group('name').strip())
 
 	elif re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command):
-		matches = re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((''|"")?(?P<command>\w*)(''|"")?).*(works?|means?)*\??)|(\w*)\?)", command)
+		matches = re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command)
 		files.man(matches.group('command').strip())
 
 	elif re.search(r"(unpack\w*|unzip|unload|unarchive|unrar|untar|extract)\s(?P<file>\"?(.)*\"?\.(?P<format>(\w)*))(\s(to|here)\s(?P<location>\"?(.)*\"?))?", command):
 		matches = re.search(r"(unpack\w*|unzip|unload|unarchive|unrar|untar|extract)\s(?P<file>\"?.*\"?\.(?P<format>\w*))(\s(to|here)\s(?P<location>\"?.*\"?))?", command)
 		files.extract(matches.group('file').strip(), matches.group('format').strip(), matches.group('location'))
+
+	elif re.search(r"copy.*((file|directory|folder)*)?\s(?P<location>\"?(.)*\"?)$", command):
+		matches = re.search(r"copy.*((file|directory|folder)*)?\s(?P<location>\"?(.)*\"?)$", command)
+		files.copy(matches.group('location'))
 
 def main():
 	if len(sys.argv) < 2:

@@ -8,7 +8,6 @@ import hallie
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
@@ -34,6 +33,7 @@ setup(
     packages=find_packages(exclude=["contrib", "docs", "tests*", "tasks"]),
     package_dir={'hallie':
                  'hallie'},
+    package_data={'hallie': ['modules/data/*.hals']},
     include_package_data=True,
     install_requires=requirements,
     license="BSD",

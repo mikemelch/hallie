@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 import speech
 import subprocess
+import os
 from pyunpack import Archive
+import pickle
+import pkg_resources
 
 def printFiles():
 	"""ls command"""
@@ -29,3 +32,11 @@ def extract(file, format, location):
 	if not location:
 		location = "."
 	Archive(file).extractall(location)
+
+#def copy(location):
+#	"""copy file or directory at a given location; can be pasted later"""
+#	copyData = pkg_resources.resource_filename(__name__, "data/copy.hals")
+#	copy = {"copyLocation": location}
+#	pickle.dump(copy, open(copyData, "w+"))
+#	speech.speak(location + " copied successfully!")
+#	speech.speak("Tip: use 'hallie paste' to paste this file.\n")
