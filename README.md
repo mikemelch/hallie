@@ -13,7 +13,7 @@ Features
 --------
 
 * Many commands including ls, mkdir, man
-* Unarchive most popular file types (.zip, .tar, .gz, .rar)
+* Unarchive most popular file types (including .zip, .tar, .gz, .rar, and many more)
 
 
 Mac Users
