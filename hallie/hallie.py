@@ -74,6 +74,10 @@ def parse(command):
 		"""pauses the current song in itunes"""
 		itunes.pause()
 
+	elif re.search(r"paste", command):
+		"""paste the current copied file"""
+		files.paste()
+
 	else:
 		"""hallie doesn't match the command"""
 		speech.speak("I'm sorry, I don't understand that command. Try \"hallie help\" if you need help.")

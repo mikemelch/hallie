@@ -31,7 +31,6 @@ setup(
     packages=find_packages(exclude=["contrib", "docs", "tests*", "tasks"]),
     package_dir={'hallie':
                  'hallie'},
-    package_data={'hallie': ['modules/data/*.hals']},
     include_package_data=True,
     install_requires=requirements,
     license="BSD",

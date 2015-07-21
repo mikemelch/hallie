@@ -5,6 +5,7 @@ import os
 from pyunpack import Archive
 import pickle
 import pkg_resources
+from os.path import expanduser
 
 def printFiles():
 	"""ls command"""
@@ -33,10 +34,17 @@ def extract(file, format, location):
 		location = "."
 	Archive(file).extractall(location)
 
-#def copy(location):
-#	"""copy file or directory at a given location; can be pasted later"""
-#	copyData = pkg_resources.resource_filename(__name__, "data/copy.hals")
-#	copy = {"copyLocation": location}
-#	pickle.dump(copy, open(copyData, "w+"))
-#	speech.speak(location + " copied successfully!")
-#	speech.speak("Tip: use 'hallie paste' to paste this file.\n")
+def copy(location):
+	"""copy file or directory at a given location; can be pasted later"""
+	copyData = expanduser("~") + '/hallie.dat'
+	copy = {"copyLocation": location}
+	pickle.dump(copy, open(copyData, "wb"))
+	speech.speak(location + " copied successfully!")
+	speech.speak("Tip: use 'hallie paste' to paste this file.\n")
+
+def paste():
+	"""paste a file or directory that has been previously copied"""
+	copyData = expanduser("~") + '/hallie.dat'
+	data = pickle.load(open(copyData, "rb"))
+	speech.speak("Copying " + data["copyLocation"] + " to current directory.\n")
+	subprocess.call(["cp", "-r", data["copyLocation"], "."])
