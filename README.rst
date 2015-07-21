@@ -2,17 +2,12 @@
 hallie
 ===============================
 
-.. image:: https://img.shields.io/travis/mikemelch/hallie.svg
-        :target: https://travis-ci.org/mikemelch/hallie
+[![Travis branch](https://img.shields.io/travis/joyent/node/v0.6.svg)]()
 
-.. image:: https://img.shields.io/pypi/v/hallie.svg
-        :target: https://pypi.python.org/pypi/hallie
-
-
-Like Siri, for the command line.. Forgot a command? Tell Hallie and she'll try to help. Inspired by betty.
+Like Siri, for the command line. Forgot a command? Tell Hallie and she'll try to help. Inspired by betty.
 
 * Free software: BSD license
-* Documentation: https://hallie.readthedocs.org.
+* Documentation: https://github.com/mikemelch/hallie/wiki.
 
 Features
 --------
