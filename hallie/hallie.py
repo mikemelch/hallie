@@ -32,6 +32,53 @@ def parse(command):
 		matches = re.search(r"(open|navigate to|browse)\s(?P<site>.*)", command)
 		browser.openSite(matches.group('site').lower())
 
+	elif re.search(r"play\s(?P<song>(\w|\s)*)\sby\s(?P<artist>(\w|\s)*)\s((off|on|from|album|within|of)\s)+(the\s)?(album\s)?(?P<album>(\w|\s)*)", command):
+		"""matches song, artist, and album ex: play runaway by kanye west from my beautiful dark twisted fantasy"""
+		matches = re.search(r"play\s(?P<song>(\w|\s)*)\sby\s(?P<artist>(\w|\s)*)\s((off|on|from|album|within|of)\s)+(the\s)?(album\s)?(?P<album>(\w|\s)*)", command)
+		itunes.play(matches.group('song'), matches.group('artist'), matches.group('album'))
+
+	elif re.search(r"play\s.*album\s(called\s|named\s)?(?P<album>(\w|\s)*)\sby\s(?P<artist>(\w|\s)*)", command):
+		"""matches album ex: play the album born sinner by j. cole"""
+		matches = re.search(r"play\s.*album\s(called\s|named\s)?(?P<album>(\w|\s)*)\sby\s(?P<artist>(\w|\s)*)", command)
+		itunes.play(None, matches.group('artist'), matches.group('album'))
+
+	elif re.search(r"play\s.*album\s(called\s|named\s)?(?P<album>(\w|\s)*)", command):
+		"""matches album ex: play the album born sinner"""
+		matches = re.search(r"play\s.*album\s(called\s|named\s)?(?P<album>(\w|\s)*)", command)
+		itunes.play(None, None, matches.group('album'))
+
+	elif re.search(r"play\s.*artist\s(called\s|named\s)?(?P<artist>(\w|\s)*)", command):
+		"""matches album ex: play the artist kanye west"""
+		matches = re.search(r"play\s.*artist\s(called\s|named\s)?(?P<artist>(\w|\s)*)", command)
+		itunes.play(None, matches.group('artist'), None)
+
+	elif re.search(r"play\s(?P<song>(\w|\s)*)\sby\s(?P<artist>(\w|\s)*)", command):
+		"""matches song and artist ex: play runaway by kanye west"""
+		matches = re.search(r"play\s(?P<song>(\w|\s)*)\sby\s(?P<artist>(\w|\s)*)", command)
+		itunes.play(matches.group('song'), matches.group('artist'))
+
+	elif re.search(r"play\s(?P<song>(\w|\s)*)", command):
+		"""matches song ex: play runaway"""
+		matches = re.search(r"play\s(?P<song>(\w|\s)*)", command)
+		itunes.play(matches.group('song'))
+	
+	elif re.search(r"(skip|next\ssong)", command):
+		"""skips the current song in itunes"""
+		itunes.skip()
+
+	elif re.search(r"(play|resume|unpause)", command):
+		"""resumes the current song in itunes"""
+		itunes.resume()
+
+	elif re.search(r"(stop|pause)", command):
+		"""pauses the current song in itunes"""
+		itunes.pause()
+
+	else:
+		"""hallie doesn't match the command"""
+		speech.speak("I'm sorry, I don't understand that command. Try \"hallie help\" if you need help.")
+		speech.speak("Feel free to fork me on github at http://github.com/mikemelch to teach me new commands!")
+
 def main():
 	if len(sys.argv) < 2:
 		speech.emptyCommand()
