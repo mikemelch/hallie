@@ -36,16 +36,18 @@ def extract(file, format, location):
 
 def copy(location):
 	"""copy file or directory at a given location; can be pasted later"""
-	copyData = expanduser("~") + '/hallie.dat'
+	copyData = settings.getCopyStorageFile()
 	copyFileLocation = os.path.abspath(location)
 	copy = {"copyLocation": copyFileLocation}
 	pickle.dump(copy, open(copyData, "wb"))
 	speech.speak(location + " copied successfully!")
 	speech.speak("Tip: use 'hallie paste' to paste this file.")
 
-def paste():
+def paste(location):
 	"""paste a file or directory that has been previously copied"""
-	copyData = expanduser("~") + '/hallie.dat'
+	copyData = settings.getCopyStorageFile()
 	data = pickle.load(open(copyData, "rb"))
+	if not location:
+		location = "."
 	speech.speak("Copying " + data["copyLocation"] + " to current directory.")
-	subprocess.call(["cp", "-r", data["copyLocation"], "."])
+	subprocess.call(["cp", "-r", data["copyLocation"], location])

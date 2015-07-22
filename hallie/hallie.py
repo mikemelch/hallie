@@ -74,9 +74,9 @@ def parse(command):
 		"""pauses the current song in itunes"""
 		itunes.pause()
 
-	elif re.search(r"paste", command):
+	elif re.search(r"(paste.*(to)?\s((?P<location>\"?(.)*\"?)$)?)|paste.*", command):
 		"""paste the current copied file"""
-		files.paste()
+		files.paste(matches.group('location'))
 
 	else:
 		"""hallie doesn't match the command"""
