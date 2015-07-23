@@ -51,3 +51,8 @@ def paste(location):
 		location = "."
 	speech.speak("Copying " + data["copyLocation"] + " to current directory.")
 	subprocess.call(["cp", "-r", data["copyLocation"], location])
+
+def whoami():
+	"""whoami"""
+	speech.speak("Running 'whoami' command.")
+	subprocess.call(["whoami"])

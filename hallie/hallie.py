@@ -78,6 +78,10 @@ def parse(command):
 		"""paste the current copied file"""
 		files.paste(matches.group('location'))
 
+	elif re.search(r"who.*|(what.*name)", command):
+		"""whoami"""
+		files.whoami()
+
 	else:
 		"""hallie doesn't match the command"""
 		speech.speak("I'm sorry, I don't understand that command. Try \"hallie help\" if you need help.")
