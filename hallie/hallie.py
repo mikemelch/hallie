@@ -16,10 +16,6 @@ def parse(command):
 		matches = re.search(r"(create|make|start|build|construct|prepare|whip).*(directory|folder|catalogue)(\s)(and\s)?(call(ed)?|name(ed)?)(\sit\s)?(?P<name>.*)", command)
 		files.mkdir(matches.group('name').strip())
 
-	elif re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command):
-		matches = re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command)
-		files.man(matches.group('command').strip())
-
 	elif re.search(r"(unpack\w*|unzip|unload|unarchive|unrar|untar|extract)\s(?P<file>\"?(.)*\"?\.(?P<format>(\w)*))(\s(to|here)\s(?P<location>\"?(.)*\"?))?", command):
 		matches = re.search(r"(unpack\w*|unzip|unload|unarchive|unrar|untar|extract)\s(?P<file>\"?.*\"?\.(?P<format>\w*))(\s(to|here)\s(?P<location>\"?.*\"?))?", command)
 		files.extract(matches.group('file').strip(), matches.group('format').strip(), matches.group('location'))
@@ -81,6 +77,18 @@ def parse(command):
 	elif re.search(r"who.*|(what.*name)", command):
 		"""whoami"""
 		files.whoami()
+
+	elif re.search(r"(what|my).*(ip|address)$", command):
+		"""get a user's IP address"""
+		if "public" in command.lower():
+			user.getPublicIPAddress()
+		else:
+			user.getLocalIPAddress()
+
+
+	elif re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command):
+		matches = re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command)
+		files.man(matches.group('command').strip())
 
 	else:
 		"""hallie doesn't match the command"""
