@@ -98,10 +98,12 @@ def parse(command):
 		files.removeFile(matches.group('file'))
 
 	elif re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command):
+		"""man command for documentation"""
 		matches = re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command)
 		files.man(matches.group('command').strip())
 
 	elif re.search(r"(install)\s(?P<package>\w*)", command):
+		"""install a package"""
 		matches = re.search(r"(install)\s(?P<package>\w*)", command)
 		install.installPackage(matches.group('package'))
 
