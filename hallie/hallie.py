@@ -7,24 +7,29 @@ from modules import *
 
 def parse(command):
 	if re.search(r"(show|give|tell|list|print)\s(me|my)*.*\s(files)", command):
+		"""show files (ls)"""
 		files.printFiles()
 
 	#elif re.match(r"(run.*(as|with)\s(priv.*|super.*|sudo|root|admin.*))|sudo|admin|super.*", command):
 		#files.sudo()
 
 	elif re.search(r"(create|make|start|build|construct|prepare|whip).*(directory|folder|catalogue)(\s)(and\s)?(call(ed)?|name(ed)?)(\sit\s)?(?P<name>.*)", command):
+		"""create directory (mkdir)"""
 		matches = re.search(r"(create|make|start|build|construct|prepare|whip).*(directory|folder|catalogue)(\s)(and\s)?(call(ed)?|name(ed)?)(\sit\s)?(?P<name>.*)", command)
 		files.mkdir(matches.group('name').strip())
 
 	elif re.search(r"(unpack\w*|unzip|unload|unarchive|unrar|untar|extract)\s(?P<file>\"?(.)*\"?\.(?P<format>(\w)*))(\s(to|here)\s(?P<location>\"?(.)*\"?))?", command):
+		"""unarchive files"""
 		matches = re.search(r"(unpack\w*|unzip|unload|unarchive|unrar|untar|extract)\s(?P<file>\"?.*\"?\.(?P<format>\w*))(\s(to|here)\s(?P<location>\"?.*\"?))?", command)
 		files.extract(matches.group('file').strip(), matches.group('format').strip(), matches.group('location'))
 
 	elif re.search(r"copy.*((file|directory|folder)*)?\s(?P<location>\"?(.)*\"?)$", command):
+		"""copy a file"""
 		matches = re.search(r"copy.*((file|directory|folder)*)?\s(?P<location>\"?(.)*\"?)$", command)
 		files.copy(matches.group('location'))
 
 	elif re.search(r"(open|navigate to|browse)\s(?P<site>.*)", command):
+		"""open default web browser to a website"""
 		matches = re.search(r"(open|navigate to|browse)\s(?P<site>.*)", command)
 		browser.openSite(matches.group('site').lower())
 
