@@ -15,9 +15,11 @@ Install
 
 Or you can build it yourself
 
-`git clone "https://github.com/mikemelch/hallie"`
-`cd hallie`
-`python setup.py install`
+```
+git clone "https://github.com/mikemelch/hallie"
+cd hallie
+python setup.py install
+```
 
 Enjoy!
 
