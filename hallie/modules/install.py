@@ -6,7 +6,7 @@ import subprocess
 
 def installPackagePip(package):
 	"""tries to install a given package on pip"""
-	speech.speak("Attempting to install package on the 'pip' package manager.")
+	speech.speak("Attempting to install '" + package + "' on the 'pip' package manager.\n")
 	pip.main(['install', package])
 
 

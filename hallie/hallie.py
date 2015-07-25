@@ -92,6 +92,10 @@ def parse(command):
 		matches = re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command)
 		files.man(matches.group('command').strip())
 
+	elif re.search(r"(install)\s(?P<package>\w*)", command):
+		matches = re.search(r"(install)\s(?P<package>\w*)", command)
+		install.installPackage(matches.group('package'))
+
 	else:
 		"""hallie doesn't match the command"""
 		speech.speak("I'm sorry, I don't understand that command. Try \"hallie help\" if you need help.")
