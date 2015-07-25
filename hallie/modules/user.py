@@ -13,3 +13,4 @@ def getLocalIPAddress():
 	"""gets the user's local IP address"""
 	ip = gethostbyname(gethostname())
 	speech.speak("Your local IP address is: " + ip)
+

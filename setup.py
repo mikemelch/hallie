@@ -14,7 +14,8 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     "pyunpack",
-    "requests"
+    "requests",
+    "pip"
 ]
 
 test_requirements = [
