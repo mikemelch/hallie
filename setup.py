@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 import io
 
 requirements = [
-    "pyunpack",
+    "patool",
     "requests",
     "pip"
 ]

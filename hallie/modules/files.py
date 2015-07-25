@@ -3,10 +3,8 @@ import speech
 import subprocess
 import os
 import settings
-from pyunpack import Archive
+import patoolib
 import pickle
-import pkg_resources
-from os.path import expanduser
 
 def printFiles():
 	"""ls command"""
@@ -36,12 +34,10 @@ def man(command):
 	speech.speak("Executing 'man " + command + "' to show you documentation for this command.")
 	subprocess.call(["man", command])
 
-def extract(file, format, location):
+def extract(file, fileFormat):
 	"""extract tar, gz, zip, rar files"""
 	speech.speak("Extracting files in " + file + ".")
-	if not location:
-		location = "."
-	Archive(file).extractall(location)
+	patoolib.extract_archive(file)
 
 def copy(location):
 	"""copy file or directory at a given location; can be pasted later"""
