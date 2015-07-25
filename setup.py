@@ -4,13 +4,6 @@ import os
 import sys
 from setuptools import setup, find_packages
 import io
-import hallie
-
-with open('README.md') as readme_file:
-    readme = readme_file.read()
-
-with open('HISTORY.md') as history_file:
-    history = history_file.read().replace('.. :changelog:', '')
 
 requirements = [
     "pyunpack",
@@ -24,9 +17,8 @@ test_requirements = [
 
 setup(
     name='hallie',
-    version='0.1.0',
+    version='0.1.1',
     description="Like Siri, for the command line.. Forgot a command? Tell Hallie and she'll try to help. Inspired by betty.",
-    long_description=readme + '\n\n' + history,
     author="Michael Melchione",
     author_email='michaelmelchione@gmail.com',
     url='https://github.com/mikemelch/hallie',
