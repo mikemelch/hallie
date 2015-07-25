@@ -44,14 +44,22 @@ def copy(location):
 	copyData = settings.getCopyStorageFile()
 	copyFileLocation = os.path.abspath(location)
 	copy = {"copyLocation": copyFileLocation}
-	pickle.dump(copy, open(copyData, "wb"))
+	dataFile = open(copyData, "wb")
+	pickle.dump(copy, dataFile)
 	speech.speak(location + " copied successfully!")
 	speech.speak("Tip: use 'hallie paste' to paste this file.")
+	
 
 def paste(location):
 	"""paste a file or directory that has been previously copied"""
 	copyData = settings.getCopyStorageFile()
-	data = pickle.load(open(copyData, "rb"))
+	try:
+		data = pickle.load(open(copyData, "rb"))
+	except:
+		speech.fail("It doesn't look like you've copied anything yet.")
+		speech.fail("Type 'hallie copy <file>' to copy a file or folder.")
+		return
+
 	if not location:
 		location = "."
 	speech.speak("Pasting " + data["copyLocation"] + " to current directory.")

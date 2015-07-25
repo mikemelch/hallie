@@ -25,7 +25,7 @@ def speak(words):
 	print prefix + words
 
 def error():
-	print prefix + "Sorry, I don't know how to do this for your platform yet!"
+	print PrintColors.FAIL + prefix + "Sorry, I don't know how to do this for your platform yet!" + PrintColors.ENDC
 
 def question(words):
 	return raw_input(prefix + words)
