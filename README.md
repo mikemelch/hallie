@@ -7,11 +7,12 @@ Like Siri, for the command line. Forgot a command? Tell Hallie and she'll try to
 
 Install
 --------
+```
+pip install hallie
+```
 
-`pip install hallie`
 
-Or you can build it yourself
-
+Or you can build it yourself:
 ```
 git clone "https://github.com/mikemelch/hallie"
 cd hallie
@@ -36,3 +37,5 @@ Mac Users
 
 * Play a particular song, artist, or album in iTunes
 * Pause, resume, or skip the current song in iTunes
+
+
