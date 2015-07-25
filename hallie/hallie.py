@@ -87,6 +87,10 @@ def parse(command):
 		else:
 			user.getLocalIPAddress()
 
+	elif re.search(r"(rename|name)\s(?P<original>\"?(.)*\"?)\sto\s(?P<new>\"?(.)*\"?)", command):
+		"""rename a file"""
+		matches = re.search(r"(rename|name)\s(?P<original>\"?(.)*\"?)\sto\s(?P<new>\"?(.)*\"?)", command)
+		files.renameFile(matches.group('original'), matches.group('new'))
 
 	elif re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command):
 		matches = re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command)

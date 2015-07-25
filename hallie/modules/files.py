@@ -12,6 +12,11 @@ def printFiles():
 	speech.speak("Executing 'ls' command to show your files.")
 	subprocess.call(["ls"])
 
+def renameFile(original, new):
+	"""rename a file"""
+	speech.speak("Executing 'mv' command to rename your file.")
+	subprocess.call(["mv", original, new])
+
 def mkdir(name):
 	"""create new directory with a given name and location"""
 	speech.speak("Executing 'mkdir " + name + "' command to create a directory.")
