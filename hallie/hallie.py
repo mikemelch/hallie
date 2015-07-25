@@ -92,6 +92,11 @@ def parse(command):
 		matches = re.search(r"(rename|name)\s(?P<original>\"?(.)*\"?)\sto\s(?P<new>\"?(.)*\"?)", command)
 		files.renameFile(matches.group('original'), matches.group('new'))
 
+	elif re.search(r"(remove|delete|terminate|kill)\s(?P<original>\"?(.)*\"?)", command):
+		"""rename a file"""
+		matches = re.search(r"(remove|delete|terminate|kill)\s(?P<file>\"?(.)*\"?)", command)
+		files.removeFile(matches.group('file'))
+
 	elif re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command):
 		matches = re.search(r"(((teach|show|how|what|advise|enlighten|give).*(me|does|information|about|how|is|are)\s((\'|\")?(?P<command>\w*)(\'|\")?).*(works?|means?)*\??)|(\w*)\?)", command)
 		files.man(matches.group('command').strip())

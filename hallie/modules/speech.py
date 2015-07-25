@@ -8,5 +8,8 @@ def speak(words):
 def error():
 	print prefix + "Sorry, I don't know how to do this for your platform yet!"
 
+def question(words):
+	return raw_input(prefix + words)
+
 def emptyCommand():
 	print prefix + "Sorry, I don't understand!\n" + prefix + "Tell me something to do, like 'hallie show me the current files'"

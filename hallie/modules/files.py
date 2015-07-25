@@ -17,6 +17,14 @@ def renameFile(original, new):
 	speech.speak("Executing 'mv' command to rename your file.")
 	subprocess.call(["mv", original, new])
 
+def removeFile(file):
+	"""remove a file"""
+	if "y" in speech.question("Are you sure you want to remove " + file + "? (Y/N): ").lower():
+		speech.speak("Removing " + file + " with the 'rm' command.")
+		subprocess.call(["rm", "-r", file])
+	else:
+		speech.speak("Okay, I won't remove " + file + ".")
+
 def mkdir(name):
 	"""create new directory with a given name and location"""
 	speech.speak("Executing 'mkdir " + name + "' command to create a directory.")
