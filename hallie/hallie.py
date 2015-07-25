@@ -108,6 +108,9 @@ def parse(command):
 		matches = re.search(r"(install)\s(?P<package>\w*)", command)
 		install.installPackage(matches.group('package'))
 
+	elif re.search(r"help", command):
+		settings.help()
+
 	else:
 		"""hallie doesn't match the command"""
 		speech.speak("I'm sorry, I don't understand that command. Try \"hallie help\" if you need help.")
