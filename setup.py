@@ -17,7 +17,7 @@ test_requirements = [
 
 setup(
     name='hallie',
-    version='0.1.1',
+    version='0.1.0',
     description="Like Siri, for the command line.. Forgot a command? Tell Hallie and she'll try to help. Inspired by betty.",
     author="Michael Melchione",
     author_email='michaelmelchione@gmail.com',
