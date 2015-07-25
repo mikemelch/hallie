@@ -170,7 +170,7 @@ end tell"""
 def platformCompatible():
 	"""Checks whether the user's operating system is MACOSX (Darwin)"""
 	if platform.system() != "Darwin":
-		speech.speak("Sorry but this command isn't available on your platform.\n")
+		speech.speak("Sorry but this command isn't available on your platform.")
 		return False
 	return True
 
@@ -211,32 +211,32 @@ def play(song, artist=None, album=None):
 		if output:
 			speech.speak("Playing " + output)
 		else:
-			speech.speak("Unable to find " + song + " in your library.\n")
+			speech.speak("Unable to find " + song + " in your library.")
 
 	elif song and artist and not album:
 		(output, error) = subprocess.Popen(["osascript", "-e", ITUNES_SONG_AND_ARTIST % (song, artist, song, artist)], stdout=subprocess.PIPE).communicate()
 		if output:
 			speech.speak("Playing " + output)
 		else:
-			speech.speak("Unable to find " + song + " in your library.\n")
+			speech.speak("Unable to find " + song + " in your library.")
 
 	elif album and artist and not song:
 		(output, error) = subprocess.Popen(["osascript", "-e", ITUNES_ALBUM_AND_ARTIST % (artist, album)], stdout=subprocess.PIPE).communicate()
 		if output:
 			speech.speak("Playing " + output)
 		else:
-			speech.speak("Unable to find " + song + " in your library.\n")
+			speech.speak("Unable to find " + song + " in your library.")
 
 	elif album and not artist and not song:
 		(output, error) = subprocess.Popen(["osascript", "-e", ITUNES_ALBUM % (album)], stdout=subprocess.PIPE).communicate()
 		if output:
 			speech.speak("Playing " + output)
 		else:
-			speech.speak("Unable to find " + song + " in your library.\n")
+			speech.speak("Unable to find " + song + " in your library.")
 
 	elif artist and not album and not song:
 		(output, error) = subprocess.Popen(["osascript", "-e", ITUNES_ARTIST % (artist)], stdout=subprocess.PIPE).communicate()
 		if output:
 			speech.speak("Playing " + output)
 		else:
-			speech.speak("Unable to find " + song + " in your library.\n")
+			speech.speak("Unable to find " + song + " in your library.")
