@@ -74,6 +74,7 @@ def parse(command):
 
 	elif re.search(r"(paste.*(to)?\s((?P<location>\"?(.)*\"?)$)?)|paste.*", command):
 		"""paste the current copied file"""
+		matches = re.search(r"(paste.*(to)?\s((?P<location>\"?(.)*\"?)$)?)|paste.*", command)
 		files.paste(matches.group('location'))
 
 	elif re.search(r"who.*|(what.*name)", command):

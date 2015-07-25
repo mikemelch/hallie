@@ -2,6 +2,7 @@
 import speech
 import subprocess
 import os
+import settings
 from pyunpack import Archive
 import pickle
 import pkg_resources
@@ -57,8 +58,10 @@ def paste(location):
 	data = pickle.load(open(copyData, "rb"))
 	if not location:
 		location = "."
-	speech.speak("Copying " + data["copyLocation"] + " to current directory.")
-	subprocess.call(["cp", "-r", data["copyLocation"], location])
+	speech.speak("Pasting " + data["copyLocation"] + " to current directory.")
+	process, error = subprocess.Popen(["cp", "-r", data["copyLocation"], location], stderr=subprocess.STDOUT, stdout=subprocess.PIPE).communicate()
+	if "denied" in process:
+		speech.fail("Unable to paste your file successfully. This is most likely due to a permission issue. You can try to run me as sudo!")
 
 def whoami():
 	"""whoami"""
