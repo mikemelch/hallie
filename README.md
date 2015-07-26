@@ -41,7 +41,7 @@ Mac Users
 
 Usage
 --------
-'''
+```
 File Related
 
 hallie show my files
@@ -80,6 +80,6 @@ Browser Related
 hallie open google
 hallie open thisWebSite
 hallie open http://thisWebSite.com
-'''
+```
 
 
