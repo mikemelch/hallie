@@ -4,6 +4,13 @@ from os.path import expanduser
 def getDataFile():
 	return expanduser("~") + '/.hallie.dat'
 
+def platformCompatible():
+	"""Checks whether the user's operating system is MACOSX (Darwin)"""
+	if platform.system() != "Darwin":
+		speech.fail("Sorry but this command isn't available on your platform.")
+		return False
+	return True
+
 def help():
 	"""teaches the user how to use hallie"""
 

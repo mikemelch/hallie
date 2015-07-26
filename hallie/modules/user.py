@@ -25,6 +25,8 @@ def getLocalIPAddress():
 
 def saveDirectory(alias):
 	"""save a directory to a certain alias/nickname"""
+	if not settings.platformCompatible():
+		return False
 	dataFile = open(settings.getDataFile(), "wb")
 	currentDirectory = os.path.abspath(".")
 	directory = {alias : currentDirectory}
@@ -34,6 +36,8 @@ def saveDirectory(alias):
 
 def goToDirectory(alias):
 	"""go to a saved directory"""
+	if not settings.platformCompatible():
+		return False
 	data = pickle.load(open(settings.getDataFile(), "rb"))
 	try:
 		data[alias]

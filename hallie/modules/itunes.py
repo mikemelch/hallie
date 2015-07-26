@@ -3,6 +3,7 @@ import speech
 import subprocess
 import os
 import platform
+import settings
 
 DEFAULT_ITUNES_PLAY = """tell application "iTunes"
 	set playlistName to "hallie song queue"
@@ -167,13 +168,6 @@ RESUME = """tell application "iTunes"
 playpause
 end tell"""
 
-def platformCompatible():
-	"""Checks whether the user's operating system is MACOSX (Darwin)"""
-	if platform.system() != "Darwin":
-		speech.speak("Sorry but this command isn't available on your platform.")
-		return False
-	return True
-
 def pause():
 	"""Tell iTunes to pause"""
 
@@ -203,7 +197,7 @@ def skip():
 def play(song, artist=None, album=None):
 	"""Tells iTunes to play a given song/artist/album - MACOSX ONLY"""
 
-	if not platformCompatible():
+	if not settings.platformCompatible():
 		return False
 
 	if song and not artist and not album:
