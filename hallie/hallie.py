@@ -121,6 +121,6 @@ def main():
 		speech.emptyCommand()
 		return -1
 
-	command = " ".join([str(sys.argv[word]) for word in range(1, len(sys.argv))]).lower()
+	command = " ".join([str(sys.argv[word]) for word in range(1, len(sys.argv))])
 
 	parse(command)
