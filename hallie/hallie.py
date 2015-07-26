@@ -28,7 +28,7 @@ def parse(command):
 	elif re.search(r"(open|navigate to|browse)\s(?P<site>.*)", command):
 		"""open default web browser to a website"""
 		matches = re.search(r"(open|navigate to|browse)\s(?P<site>.*)", command)
-		browser.openSite(matches.group('site').lower())
+		browser.openSite(matches.group('site'))
 
 	elif re.search(r"play\s(?P<song>(\w|\s)*)\sby\s(?P<artist>(\w|\s)*)\s((off|on|from|album|within|of)\s)+(the\s)?(album\s)?(?P<album>(\w|\s)*)", command):
 		"""matches song, artist, and album ex: play runaway by kanye west from my beautiful dark twisted fantasy"""
@@ -83,7 +83,7 @@ def parse(command):
 
 	elif re.search(r"(what|my).*(ip|address)$", command):
 		"""get a user's IP address"""
-		if "public" in command.lower():
+		if "public" in command:
 			user.getPublicIPAddress()
 		else:
 			user.getLocalIPAddress()
