@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from os.path import expanduser
 
-def getCopyStorageFile():
+def getDataFile():
 	return expanduser("~") + '/.hallie.dat'
 
 def help():
