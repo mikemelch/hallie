@@ -37,6 +37,7 @@ Mac Users
 
 * Play a particular song, artist, or album in iTunes
 * Pause, resume, or skip the current song in iTunes
+* Save a frequented directory with a nickname
 
 
 Usage
@@ -69,6 +70,12 @@ hallie skip
 hallie play <song> by <artist>
 hallie play the album <album>
 hallie play the artist <artist>
+
+
+Directory Related (Mac Only)
+
+hallie save as downloadFolder
+hallie go to downloadFolder
 
 
 Install Related
