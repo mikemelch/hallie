@@ -9,6 +9,8 @@ Install
 --------
 ```
 pip install hallie
+or
+easy_install hallie
 ```
 
 
