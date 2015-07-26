@@ -39,3 +39,47 @@ Mac Users
 * Pause, resume, or skip the current song in iTunes
 
 
+Usage
+--------
+'''
+File Related
+
+hallie show my files
+hallie rename thisFile to thatFile
+hallie remove thisFile
+hallie create a directory called thisFolder
+hallie teach me about ls
+hallie extract thisArchive.tar.gz
+hallie copy thisFile
+hallie paste
+hallie what is my name
+
+
+User Related
+
+hallie what is my public ip
+hallie what is my local ip
+
+
+iTunes Related (Mac Only)
+
+hallie pause
+hallie resume
+hallie skip
+hallie play <song> by <artist>
+hallie play the album <album>
+hallie play the artist <artist>
+
+
+Install Related
+
+hallie install requests
+
+
+Browser Related
+hallie open google
+hallie open thisWebSite
+hallie open http://thisWebSite.com
+'''
+
+
