@@ -92,3 +92,6 @@ hallie open http://thisWebSite.com
 ```
 
 
+Contributing
+--------
+If you think that a feature is lacking or can be improved, please add an issue! Issues are greatly appreciated so I can see how other people's experiences have been. In addition, I welcome pull requests! If you would like to work on hallie, don't hesitate to fork and start working on some changes.
