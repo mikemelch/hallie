@@ -53,7 +53,7 @@ If you are proposing a feature:
   are welcome :)
 
 Get Started!
-------------
+~~~~~~~~~~~~
 
 Ready to contribute? Here's how to set up `hallie` for local development.
 
@@ -91,7 +91,7 @@ Ready to contribute? Here's how to set up `hallie` for local development.
 7. Submit a pull request through the GitHub website.
 
 Pull Request Guidelines
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Before you submit a pull request, check that it meets these guidelines:
 
@@ -104,7 +104,7 @@ Before you submit a pull request, check that it meets these guidelines:
    and make sure that the tests pass for all supported Python versions.
 
 Tips
-----
+~~~~
 
 To run a subset of tests::
 
