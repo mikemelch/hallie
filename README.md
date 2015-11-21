@@ -1,4 +1,4 @@
-(hallie.png)
+![hallie logo](hallie.png)
 
 
 hallie
