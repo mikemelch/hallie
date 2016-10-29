@@ -87,6 +87,8 @@ Install Related
 
 hallie install requests
 
+hallie is python installed
+hallie is py installed
 
 Browser Related
 hallie open google
