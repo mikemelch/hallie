@@ -108,6 +108,11 @@ def parse(command):
 		matches = re.search(r"(install)\s(?P<package>\w*)", command)
 		install.installPackage(matches.group('package'))
 
+	elif re.search(r"(is|was)\s(?P<package>\w*)\s(installed)", command):
+		"""check if a package is installed"""
+		matches = re.search(r"(is|was)\s(?P<package>\w*)\s(installed)", command)
+		install.checkInstalled(matches.group('package'))
+
 	elif re.search(r"(save|alias|nickname).*(as|name\w*|call\w*)\s(?P<alias>\w*)$", command):
 		"""save a directory to an alias"""
 		matches = re.search(r"(save|alias|nickname).*(as|name\w*|call\w*)\s(?P<alias>\w*)$", command)
