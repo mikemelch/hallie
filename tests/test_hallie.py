@@ -22,7 +22,7 @@ class TestHallie(unittest.TestCase):
 		sys.stdout = out
 		hallie.main()
 		output = out.getvalue().strip()
-		assert "Sorry, I don't understand" in output
+		assert "I'm sorry, I don't understand that command" in output
 
 	def testBadCommand(self):
 		out = StringIO()
@@ -34,7 +34,7 @@ class TestHallie(unittest.TestCase):
 	def testGoodCommand(self):
 		out = StringIO()
 		sys.stdout = out
-		hallie.parse("play")
+		hallie.parse("show me the current files")
 		output = out.getvalue().strip()
 		assert "I'm sorry, I don't understand that command" not in output
 
