@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from os.path import expanduser
+import platform
 
 def getDataFile():
 	return expanduser("~") + '/.hallie.dat'
