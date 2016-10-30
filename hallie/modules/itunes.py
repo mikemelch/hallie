@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 import speech
 import subprocess
-import os
-import platform
 import settings
 
 DEFAULT_ITUNES_PLAY = """tell application "iTunes"
@@ -171,7 +169,7 @@ end tell"""
 def pause():
 	"""Tell iTunes to pause"""
 
-	if not platformCompatible():
+	if not settings.platformCompatible():
 		return False
 
 	(output, error) = subprocess.Popen(["osascript", "-e", PAUSE], stdout=subprocess.PIPE).communicate()
@@ -179,7 +177,7 @@ def pause():
 def resume():
 	"""Tell iTunes to resume"""
 
-	if not platformCompatible():
+	if not settings.platformCompatible():
 		return False
 
 	(output, error) = subprocess.Popen(["osascript", "-e", RESUME], stdout=subprocess.PIPE).communicate()
@@ -188,7 +186,7 @@ def resume():
 def skip():
 	"""Tell iTunes to skip a song"""
 
-	if not platformCompatible():
+	if not settings.platformCompatible():
 		return False
 
 	(output, error) = subprocess.Popen(["osascript", "-e", SKIP], stdout=subprocess.PIPE).communicate()
